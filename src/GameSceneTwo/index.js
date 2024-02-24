@@ -44,6 +44,10 @@ export default class GameSceneTwo extends Phaser.Scene {
       this.trash2.destroy();
       this.score += 10
       this.scoreText.setText(`Game Score ${this.score}`)
+
+      this.scene.stop('GameSceneTwo')
+      this.scene.start('GameSceneThree')
+
     });
   }
   update() {
