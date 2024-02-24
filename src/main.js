@@ -9,7 +9,13 @@ let config = {
   width: 1200,
   height: 400,
   backgroundColor: "b9eaff",
-  scene: [GameSceneOne, GameSceneTwo]
+  scene: [GameSceneOne, GameSceneTwo],
+  physics: {
+    default: "arcade",
+    arcade: {
+      debug: true,
+    },
+  },
 };
 
 export default new Phaser.Game(config);
