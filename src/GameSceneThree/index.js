@@ -26,7 +26,7 @@ export default class GameSceneThree extends Phaser.Scene {
     this.load.image("electricbus", "assets/electricbus.png");
     this.load.image("cybertruck", "assets/cybertruck.png");
     this.load.image("vehicle", "assets/fuelvehicle.png");
-    this.load.image("selectionPopUp", "assets/selectionText.PNG");
+    this.load.image("selectionPopUp", "assets/selectionText.png");
     this.load.image("player1", "assets/man.png");
 
     this.cursors = this.input.keyboard.createCursorKeys();

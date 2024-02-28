@@ -20,7 +20,7 @@ export default class GameSceneTwo extends Phaser.Scene {
 
     this.load.image("trash1", "assets/trashbag.PNG");
     this.load.image("trash2", "assets/trash2.png");
-    this.load.image("dustbin", "assets/dustbin.png");
+    this.load.image("dustbin", "assets/dustbin.PNG");
 
     this.cursors = this.input.keyboard.createCursorKeys();
   }
