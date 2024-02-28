@@ -1,3 +1,20 @@
+function playerDestroyed(player, enemy, count, scoreText, thisProps) {
+  if (player.body.velocity.x <= 0) {
+    player.destroy();
+
+    thisProps.add
+      .text(400, 250, `GAME OVER! ${count}`, {
+        fontSize: "54px",
+        color: "#000000",
+      })
+      .setScrollFactor(0);
+    thisProps.scene.pause();
+  } else {
+    count += 50;
+    enemy.destroy();
+    scoreText.setText(`Game Score ${count}`);
+  }
+}
 export default class GameSceneFour extends Phaser.Scene {
   player;
   enemy;
@@ -55,86 +72,55 @@ export default class GameSceneFour extends Phaser.Scene {
       })
       .setScrollFactor(0);
 
-    this.physics.add.collider(this.enemy, this.player, () => {
-      if (this.player.body.velocity.x <= 0) {
-        this.player.destroy();
-
-        this.add
-          .text(450, 200, `GAME OVER! ${this.count}`, {
-            fontSize: "64px",
-            color: "#000000",
-          })
-          .setScrollFactor(3);
-        this.scene.pause();
-      } else {
-        this.count += 50;
-        this.enemy.destroy();
-        this.scoreText.setText(`Game Score ${this.count}`);
-      }
-    });
+    // pop up guide
+    this.add
+      .text(
+        10,
+        20,
+        `Keep moving! 🏃‍♂️\nThe trash monster will kill you if you stand still.`,
+        {
+          fontSize: "18px",
+          color: "#000000",
+        }
+      )
+      .setScrollFactor(0);
 
     this.physics.add.collider(this.player, this.enemy, () => {
-      if (this.player.body.velocity.x <= 0) {
-        this.player.destroy();
-
-        this.add
-          .text(500, 200, `GAME OVERR! ${this.count}`, {
-            fontSize: "54px",
-            color: "#000000",
-          })
-          .setScrollFactor(0);
-        this.scene.pause();
-      } else {
-        this.count += 50;
-        this.enemy.destroy();
-        this.scoreText.setText(`Game Score ${this.count}`);
-      }
+      playerDestroyed(
+        this.player,
+        this.enemy,
+        this.count,
+        this.scoreText,
+        this
+      );
     });
     this.physics.add.collider(this.player, this.enemy1, () => {
-      if (this.player.body.velocity.x <= 0) {
-        this.player.destroy();
-
-        this.add.text(500, 200, `GAME OVERR! ${this.count}`, {
-          fontSize: "54px",
-          color: "#000000",
-        });
-        this.scene.pause();
-      } else {
-        this.count += 50;
-        this.enemy1.destroy();
-        this.scoreText.setText(`Game Score ${this.count}`);
-      }
+      playerDestroyed(
+        this.player,
+        this.enemy1,
+        this.count,
+        this.scoreText,
+        this
+      );
     });
     this.physics.add.collider(this.player, this.enemy2, () => {
-      if (this.player.body.velocity.x <= 0) {
-        this.player.destroy();
-
-        this.add.text(500, 200, `GAME OVERR! ${this.count}`, {
-          fontSize: "54px",
-          color: "#000000",
-        });
-        this.scene.pause();
-      } else {
-        this.count += 50;
-        this.enemy2.destroy();
-        this.scoreText.setText(`Game Score ${this.count}`);
-      }
+      playerDestroyed(
+        this.player,
+        this.enemy2,
+        this.count,
+        this.scoreText,
+        this
+      );
     });
 
     this.physics.add.collider(this.player, this.enemy3, () => {
-      if (this.player.body.velocity.x <= 0) {
-        this.player.destroy();
-
-        this.add.text(500, 200, `GAME OVERR! ${this.count}`, {
-          fontSize: "54px",
-          color: "#000000",
-        });
-        this.scene.pause();
-      } else {
-        this.count += 50;
-        this.enemy3.destroy();
-        this.scoreText.setText(`Game Score ${this.count}`);
-      }
+      playerDestroyed(
+        this.player,
+        this.enemy3,
+        this.count,
+        this.scoreText,
+        this
+      );
     });
 
     this.cameras.main.startFollow(this.player);
@@ -160,6 +146,12 @@ export default class GameSceneFour extends Phaser.Scene {
 
     if (this.player.x > 3750) {
       this.scene.pause();
+      this.add
+        .text(400, 250, `Your Score! ${this.count}`, {
+          fontSize: "54px",
+          color: "#000000",
+        })
+        .setScrollFactor(0);
     }
   }
 }
