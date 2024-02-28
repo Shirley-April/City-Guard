@@ -1,8 +1,8 @@
 function startSceneTravel(props) {
+  props.scene.stop("GameSceneThree");
   setTimeout(() => {
-    props.scene.stop("GameSceneThree");
-    props.scene.start("GameSceneFour");
-  }, 2000);
+    props.scene.start("GameSceneTravel");
+  }, 300);
 }
 export default class GameSceneThree extends Phaser.Scene {
   player1;
