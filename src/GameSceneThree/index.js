@@ -2,7 +2,7 @@ function startSceneTravel(props) {
   props.scene.stop("GameSceneThree");
   setTimeout(() => {
     props.scene.start("GameSceneTravel");
-  }, 300);
+  }, 100);
 }
 export default class GameSceneThree extends Phaser.Scene {
   player1;
