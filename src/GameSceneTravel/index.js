@@ -85,6 +85,18 @@ export default class GameSceneTravel extends Phaser.Scene {
       })
       .setScrollFactor(0);
 
+    this.add
+      .text(
+        10,
+        20,
+        `Keep moving! 🏃‍♂️\nThe trash monster will kill you if you stand still.`,
+        {
+          fontSize: "18px",
+          color: "#000000",
+        }
+      )
+      .setScrollFactor(0);
+
     this.physics.add.collider(this.activebus, this.trashmonster, () => {
       busDestroyed(
         this.activebus,
@@ -134,7 +146,7 @@ export default class GameSceneTravel extends Phaser.Scene {
     }
 
     if (this.cursors.right.isDown) {
-      this.activebus.setVelocityX(2000);
+      this.activebus.setVelocityX(1000);
     } else if (this.cursors.left.isDown) {
       this.activebus.setVelocityX(-20);
     } else {
@@ -149,6 +161,8 @@ export default class GameSceneTravel extends Phaser.Scene {
           color: "#000000",
         })
         .setScrollFactor(0);
+      this.scene.stop("GameSceneTravel");
+      this.scene.start("GameSceneFour");
     }
   }
 }
