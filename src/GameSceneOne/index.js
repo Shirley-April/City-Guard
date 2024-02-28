@@ -5,14 +5,19 @@ export default class GameSceneOne extends Phaser.Scene {
   }
 
   preload() {
-    this.cursors = this.input.keyboard.createCursorKeys()
+    this.cursors = this.input.keyboard.createCursorKeys();
   }
 
   create() {
-    this.add.text(500, 200, "Start game", {
-      color: "#000000",
-      fontSize: 24,
-    });
+    this.add.text(
+      300,
+      200,
+      "=== Game Instructions ===\n \nStart the game: Press the down arrow\nMove characters: Use the left and right arrows",
+      {
+        color: "#000000",
+        fontSize: 24,
+      }
+    );
   }
 
   update() {

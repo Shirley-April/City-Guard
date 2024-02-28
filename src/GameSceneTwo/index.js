@@ -38,6 +38,18 @@ export default class GameSceneTwo extends Phaser.Scene {
       color: "#000000",
     });
 
+    this.add
+      .text(
+        10,
+        20,
+        `Collect trash and earn rewards`,
+        {
+          fontSize: "18px",
+          color: "#000000",
+        }
+      )
+      .setScrollFactor(0);
+
     this.physics.add.collider(this.player, this.trash1, () => {
       this.trash1.destroy();
       this.score += 10;
