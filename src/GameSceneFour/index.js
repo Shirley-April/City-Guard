@@ -50,7 +50,7 @@ export default class GameSceneFour extends Phaser.Scene {
     this.enemy = this.physics.add
       .image(800, 480, "enemy")
       .setScale(0.5)
-      .setVelocityX(-300);
+      .setVelocityX(-100);
     this.enemy1 = this.physics.add
       .image(2000, 480, "enemy")
       .setScale(0.5)
